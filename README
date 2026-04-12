@@ -11,14 +11,14 @@
     Mô hình thiết kế: Page Object Model (POM)
     Trình duyệt: Google Chrome
 3. Danh sách các chức năng đã kiểm thử
-    1. Dự án bao phủ toàn bộ luồng nghiệp vụ cốt lõi của ngân hàng:
-    2. Authentication: Đăng nhập hệ thống và Đăng xuất an toàn.
-    3. Customer Management: Tạo mới khách hàng và kiểm tra các ràng buộc dữ liệu (Validation).
-    4. Account Management: Mở tài khoản mới cho khách hàng hiện có.
-    5. Transaction Management: * Deposit: Nạp tiền vào tài khoản.
-    6. Withdrawal: Rút tiền (kiểm tra lỗi khi vượt quá số dư).
-    7. Fund Transfer: Chuyển khoản giữa các tài khoản (kiểm tra lỗi trùng ID).
-    8. Reporting: Truy vấn sao kê (Customized Statement) theo thời gian và giá trị giao dịch.
+    Dự án bao phủ toàn bộ luồng nghiệp vụ cốt lõi của ngân hàng:
+        1. Authentication: Đăng nhập hệ thống và Đăng xuất an toàn.
+        2. Customer Management: Tạo mới khách hàng và kiểm tra các ràng buộc dữ liệu (Validation).
+        3. Account Management: Mở tài khoản mới cho khách hàng hiện có.
+        4. Transaction Management: * Deposit: Nạp tiền vào tài khoản.
+        5. Withdrawal: Rút tiền (kiểm tra lỗi khi vượt quá số dư).
+        6. Fund Transfer: Chuyển khoản giữa các tài khoản (kiểm tra lỗi trùng ID).
+        7. Reporting: Truy vấn sao kê (Customized Statement) theo thời gian và giá trị giao dịch.
 4. Cách chạy dự án (Getting Started)
     1. Yêu cầu hệ thống
         Đã cài đặt JDK 11 trở lên.
@@ -41,3 +41,7 @@ Thành viên nhóm:
     Hoàng Lê Nhất Phan
     Huỳnh Hiến Anh Quý
 Dự án: Automation Test Guru99 Bank
+
+git remote add origin https://github.com/thuantcn1802/Automation-Test-Guru99-Bank.git
+git branch -M main
+git push -u origin main
