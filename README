@@ -1,43 +1,176 @@
-1. Cấu trúc Dự án (Project Structure)
-    Dự án được tổ chức theo mô hình Maven, tách biệt rõ ràng giữa các thành phần giao diện (Pages) và kịch bản kiểm thử (Tests):
-        src/main/java/pages: Chứa các lớp Page Object. Mỗi lớp đại diện cho một trang web (Login, New Customer, Deposit,...) chứa các Locators và Actions tương ứng.
-        src/test/java/base: Chứa BaseTest.java - Lớp khởi tạo WebDriver, quản lý đóng/mở trình duyệt và các cấu hình chung.
-        src/test/java/tests: Chứa các kịch bản kiểm thử thực tế (Test Cases) được viết bằng TestNG.
-2. Công nghệ Sử dụng (Tech Stack)
-    Ngôn ngữ chính: Java
-    Thư viện Automation: Selenium WebDriver (v4.16.1)
-    Framework Testing: TestNG
-    Quản lý dự án: Maven
-    Mô hình thiết kế: Page Object Model (POM)
-    Trình duyệt: Google Chrome
-3. Danh sách các chức năng đã kiểm thử
-    Dự án bao phủ toàn bộ luồng nghiệp vụ cốt lõi của ngân hàng:
-    1. Authentication: Đăng nhập hệ thống và Đăng xuất an toàn.
-    2. Customer Management: Tạo mới khách hàng và kiểm tra các ràng buộc dữ liệu (Validation).
-    3. Account Management: Mở tài khoản mới cho khách hàng hiện có.
-    4. Transaction Management: * Deposit: Nạp tiền vào tài khoản.
-    5. Withdrawal: Rút tiền (kiểm tra lỗi khi vượt quá số dư).
-    6. Fund Transfer: Chuyển khoản giữa các tài khoản (kiểm tra lỗi trùng ID).
-    7. Reporting: Truy vấn sao kê (Customized Statement) theo thời gian và giá trị giao dịch.
-4. Cách chạy dự án (Getting Started)
-    1. Yêu cầu hệ thống
-        Đã cài đặt JDK 11 trở lên.
-        Đã cài đặt Maven.
-        Trình duyệt Chrome phiên bản mới nhất.
-    2. Thực thi kiểm thử
-        Có thể chạy dự án bằng 2 cách:
-            Cách 1: Chạy trực tiếp từng file trong thư mục tests từ IntelliJ IDEA (Chuột phải -> Run).
-            Cách 2: (Khuyến nghị) Chạy qua file testng.xml để thực thi toàn bộ quy trình:
-                mvn clean test
-5. Các kỹ thuật đã áp dụng
-    Explicit Waits: Sử dụng WebDriverWait để xử lý các phần tử tải chậm và các Alert động của hệ thống.
-    JavaScript Executor: Xử lý click trong các trường hợp phần tử bị che bởi quảng cáo.
-    Validation Testing: Kiểm tra kỹ lưỡng các thông báo lỗi (red message) khi người dùng nhập sai định dạng hoặc để trống trường dữ liệu.
-    URL Assertion: Kỹ thuật kiểm tra chuyển hướng URL để xác nhận kết quả giao dịch khi Server demo gặp lỗi 500.
-6. Thông tin tác giả
-    Thành viên nhóm:
-        Nguyễn Văn Thuận
-        Nguyễn Tiến
-        Hoàng Lê Nhất Phan
-        Huỳnh Hiến Anh Quý
-    Dự án: Automation Test Guru99 Bank
+# Guru99 Bank Automation Testing
+
+A Selenium-based test automation framework developed for the Guru99 Bank demo application. This project demonstrates the implementation of automated functional testing using Java, Selenium WebDriver, TestNG, and the Page Object Model (POM) design pattern.
+
+## Project Overview
+
+This project was developed as a collaborative academic project with the goal of applying Software Testing principles and QA Automation practices to a real-world banking system simulation.
+
+The framework automates critical banking workflows, including:
+
+* Login
+* Customer Management
+* Account Creation
+* Deposit
+* Withdrawal
+* Fund Transfer
+* Customized Statement
+* Logout
+
+In addition to automation testing, a comprehensive manual testing process was conducted, resulting in 60 documented test cases covering positive, negative, validation, and business workflow scenarios.
+
+---
+
+## Technologies Used
+
+* Java
+* Selenium WebDriver
+* TestNG
+* Page Object Model (POM)
+* Maven
+* Git & GitHub
+* WebDriverManager
+
+---
+
+## Framework Architecture
+
+The project follows the Page Object Model (POM) design pattern to improve maintainability and reusability.
+
+### Structure
+
+```text
+src
+├── main
+│   └── java
+│       └── pages
+│           ├── LoginPage
+│           ├── ManagerHomePage
+│           ├── NewCustomerPage
+│           ├── NewAccountPage
+│           ├── DepositPage
+│           ├── WithdrawPage
+│           ├── FundTransferPage
+│           └── CustomizedStatementPage
+│
+└── test
+    └── java
+        ├── base
+        │   └── BaseTest
+        │
+        └── tests
+            ├── LoginTest
+            ├── CustomerTest
+            ├── AccountTest
+            ├── DepositTest
+            ├── WithdrawTest
+            ├── FundTransferTest
+            ├── StatementTest
+            └── LogoutTest
+```
+
+---
+
+## Key Features
+
+### Manual Testing
+
+* Designed and documented 60 test cases.
+* Covered positive and negative test scenarios.
+* Performed validation testing and workflow testing.
+* Documented expected and actual results for each test case.
+
+### Automation Testing
+
+* Automated 8 core banking modules.
+* Implemented reusable Page Objects.
+* Utilized dynamic XPath and CSS selectors.
+* Centralized WebDriver setup using a reusable BaseTest class.
+* Implemented alert handling and synchronization using Selenium waits.
+* Executed assertions using TestNG.
+
+---
+
+## Test Modules
+
+| Module               | Test Coverage                    |
+| -------------------- | -------------------------------- |
+| Login                | Authentication and validation    |
+| New Customer         | Customer registration            |
+| New Account          | Account creation                 |
+| Deposit              | Deposit transactions             |
+| Withdrawal           | Withdrawal transactions          |
+| Fund Transfer        | Money transfer workflow          |
+| Customized Statement | Transaction statement generation |
+| Logout               | Session termination              |
+
+---
+
+## Manual Test Case Statistics
+
+| Module               | Number of Test Cases |
+| -------------------- | -------------------: |
+| Login                |                    6 |
+| New Customer         |                   13 |
+| New Account          |                    8 |
+| Deposit              |                    9 |
+| Withdrawal           |                    9 |
+| Fund Transfer        |                    9 |
+| Customized Statement |                    5 |
+| Logout               |                    1 |
+| **Total**            |               **60** |
+
+---
+
+## How to Run the Project
+
+### Prerequisites
+
+* Java JDK 8+
+* Maven
+* Google Chrome
+
+### Clone Repository
+
+```bash
+git clone https://github.com/thuantcn1802/Automation-Test-Guru99-Bank.git
+cd Automation-Test-Guru99-Bank
+```
+
+### Install Dependencies
+
+```bash
+mvn clean install
+```
+
+### Execute Tests
+
+```bash
+mvn test
+```
+
+---
+
+## Skills Demonstrated
+
+* Software Testing Life Cycle (STLC)
+* Test Case Design
+* Manual Testing
+* Functional Testing
+* Regression Testing
+* Selenium Automation
+* TestNG Framework
+* Page Object Model (POM)
+* Defect Analysis
+* Maven Dependency Management
+* Git Version Control
+
+---
+
+## Author
+
+Nguyen Van Thuan
+
+QA Automation Tester | Software Testing Enthusiast
+
+GitHub: https://github.com/thuantcn1802
